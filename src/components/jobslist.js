@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import Job from "./job";
 
 const JobsList = () => {
@@ -11,7 +11,7 @@ const JobsList = () => {
       salary: 4.5,
       city: "Bogotá, Colombia",
       date: "2019-03-26",
-      views: 1205,
+      views: 1250,
     },
     {
       id: "0002",
@@ -20,7 +20,7 @@ const JobsList = () => {
       salary: 20,
       city: "Palo Alto, CA, USA",
       date: "2019-03-27",
-      views: 1250,
+      views: 300,
     },
     {
       id: "0003",
@@ -29,14 +29,19 @@ const JobsList = () => {
       salary: 1,
       city: "Cali, Colombia",
       date: "2019-03-28",
-      views: 600,
+      views: 7000,
     },
   ]);
+
+  const theadStyle =
+    useIntl().locale.includes("es")
+      ? "table-light"
+      : "table-dark"
 
   return (
     <div>
       <table className="table">
-        <thead className="thead-dark">
+        <thead className={theadStyle}>
           <tr>
             <th scope="col">#</th>
             <th scope="col">
